@@ -9,16 +9,15 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <>
+    <div className="min-w-fit bg-green-500/50">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/about/counter" element={<Counter />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 
