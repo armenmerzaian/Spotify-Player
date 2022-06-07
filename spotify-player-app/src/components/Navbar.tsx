@@ -1,12 +1,6 @@
 import {NavLink} from 'react-router-dom';
-
-function Button({to, children}: {to: string, children: string | number}){
-  return (
-    <a href={to} target="_blank" className="px-6 py-2 bg-slate-100 rounded-full font-semibold">
-      {children}
-    </a>
-  );
-}
+import Button from './Button';
+import loginButton from '../util/loginButton';
 
 
 function Navbar() {
@@ -21,7 +15,7 @@ function Navbar() {
             <li><NavLink to="/about" className={({ isActive }) => isActive ? "text-gray-100" : "text-gray-400 focus:hover:text-gray-100"}>About the Project</NavLink></li>
           </ul>
         <div id="navbar-cta">
-          <Button to="http://www.google.com">Login</Button>
+          <Button to={loginButton()}>Login</Button>
         </div>
       </nav>
     </div>
