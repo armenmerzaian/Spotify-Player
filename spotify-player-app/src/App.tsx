@@ -1,23 +1,19 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import About from "./pages/About";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+import { Dashboard } from "./pages/Dashboard";
+import { Login } from "./pages/Login";
+import { UserContextProvider } from './util/userContext';
+
 
 function App() {
   return (
-    <div className="min-w-fit bg-green-500/50">
-      <Header />
+    <UserContextProvider>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:accessToken" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
+      <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="login" element={<Login />} />
+        <Route path="dashboard" element={<Dashboard />} />
       </Routes>
-      <Footer />
-    </div>
+    </UserContextProvider>
   );
 }
 
