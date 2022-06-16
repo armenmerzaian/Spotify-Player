@@ -1,28 +1,34 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
 import User from "./userInterface";
 
-interface userContextInterface {
-    userState: User | null,
-    loginUser: Function,
-    logoutUser: Function,
+export interface userContextInterface {
+  userState: User;
+  loginUser: Function;
+  logoutUser: Function;
 }
 
-const userStateContext = createContext<userContextInterface | null>(null);
+const userStateContext: React.Context<userContextInterface> = createContext<
+  userContextInterface | any
+>(null);
 
-export const UserContextProvider = ({ children }: { children: | ReactNode}) => {
-  const [userState, setUserState] = useState<User | null>(null);
+export const UserContextProvider = ({ children }: { children: ReactNode }) => {
+  const [userState, setUserState] = useState<User | any>();
 
   function loginUser(user: User): void {
     setUserState(user);
   }
 
-  function logoutUser(): void{
+  function logoutUser(): void {
     setUserState(null);
   }
 
-  return <userStateContext.Provider value={{userState, loginUser, logoutUser}}>{children}</userStateContext.Provider>;
+  return (
+    <userStateContext.Provider value={{ userState, loginUser, logoutUser }}>
+      {children}
+    </userStateContext.Provider>
+  );
 };
 
-export const userAuth = () => {
-    return useContext(userStateContext);
-}
+export const userAuth = (): userContextInterface => {
+  return useContext(userStateContext);
+};
