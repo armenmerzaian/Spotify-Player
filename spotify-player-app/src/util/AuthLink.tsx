@@ -1,5 +1,5 @@
 
-export default function AuthLink() {
+export default function authLink() {
   const client_id: string = "0fc2c9d87fa247ac8d255a1a041108a5";
   const response_type: string = "token";
   const redirect_uri: string = "http://localhost:3000/login";

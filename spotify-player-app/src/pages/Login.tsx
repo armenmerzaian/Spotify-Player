@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import User from "../util/userInterface";
 import { userAuth, userContextInterface } from "../util/userContext";
-import AuthLink from "../util/AuthLink";
+import authLink from "../util/authLink";
 import parseHash from "../util/parseHash";
 
 export const Login = () => {
@@ -18,10 +18,12 @@ export const Login = () => {
       authorizer.loginUser(userToken);
       setUser(userToken);
     } else {
-      window.location.href = AuthLink();
+      window.location.href = authLink();
     }
   }, [user]);
 
   // TODO: Loading spinner
+  // TODO: Error Handling
+  // TODO: Save userState & timestamp to localstorage, then test in on page reload 
   return <></>;
 };
