@@ -1,5 +1,5 @@
 import React from "react";
-import { BrandLogo } from "./BrandLogo";
+import { BrandLogo } from "./SideBrand";
 import Playlists from "./Playlists";
 import SideMenu from "./SideMenu";
 
