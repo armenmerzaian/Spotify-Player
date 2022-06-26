@@ -4,7 +4,7 @@ export default function authLink() {
   const response_type: string = "token";
   const redirect_uri: string = "http://localhost:3000/login";
   const scope: string =
-    "user-read-email user-read-private app-remote-control playlist-read-collaborative playlist-modify-public playlist-read-private playlist-modify-private user-read-recently-played user-read-playback-position user-top-read user-follow-modify user-follow-read user-modify-playback-state user-read-playback-state user-read-currently-playing ugc-image-upload";
+    "user-read-email user-read-private playlist-read-collaborative playlist-modify-public playlist-read-private playlist-modify-private user-read-recently-played user-read-playback-position user-top-read user-follow-read";
 
   let url = "https://accounts.spotify.com/authorize";
   url += "?response_type=" + response_type;

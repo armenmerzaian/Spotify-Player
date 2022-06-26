@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { userAuth } from "../util/userContext";
 import { useNavigate } from "react-router";
 import { Sidebar } from "../components/Sidebar";
@@ -8,11 +8,16 @@ export const Dashboard = () => {
   const navigate = useNavigate();
   const authorizer = userAuth();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!authorizer.userState) {
       navigate("/login");
     }
   }, []);
+
+  useEffect(() => {
+    console.log(authorizer.userState);
+  }, [authorizer.userState])
+  
 
   return (
     <div className="flex mx-auto">

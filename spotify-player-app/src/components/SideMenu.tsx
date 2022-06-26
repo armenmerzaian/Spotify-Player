@@ -39,7 +39,7 @@ function SideMenu() {
 function MenuItem({ label, children }: { label: string; children: ReactNode }) {
   return (
     <li className="w-full mb-2">
-      <div className="inline-flex items-center gap-4 hover:text-gray-200">
+      <div className="inline-flex items-center gap-4 hover:text-gray-200 hover:curosr-pointer">
         {children}
         <span>{label}</span>
       </div>
